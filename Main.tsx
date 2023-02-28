@@ -2,6 +2,24 @@ import React, { useState } from 'react';
 import { StyleSheet, Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import TcpSocket from 'react-native-tcp-socket';
 import socketInfo from './Utils';
+import SoundPlayer from 'react-native-sound-player'
+
+/* sound file location downloaded from https://www.soundjay.com/beep-sounds-1.html
+/android/app/src/main/res/raw/beep01.wav
+/android/app/src/main/res/raw/beep02.wav */
+
+
+// const soundPlay = () => {
+//     try {
+//       // play the file beep-01.wav
+//       SoundPlayer.playSoundFile('beep02', 'wav')
+//       console.log(`play the sound file`)
+//       // or play from url
+//       // SoundPlayer.playUrl('URL')
+//   } catch (e) {
+//       console.log(`cannot play the sound file`, e)
+//   }
+// }
 
 function Main(): JSX.Element {
   
@@ -46,6 +64,8 @@ function Main(): JSX.Element {
       console.log('Connection closed!');
       // setSocketState(socketState => "Connection closed!");
     });
+
+    SoundPlayer.playSoundFile('beep01', 'wav')
   }
   
   return (
