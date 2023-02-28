@@ -2,7 +2,7 @@ import socket
 
 def main():
     # 접속 정보 설정
-    SERVER_IP = '192.168.0.47'
+    SERVER_IP = '192.168.203.27'
     SERVER_PORT = 20000
     SIZE = 9999
     SERVER_ADDR = (SERVER_IP, SERVER_PORT)     
