@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { StyleSheet, Text, SafeAreaView, TouchableOpacity} from 'react-native';
+import { StyleSheet, View, Text, SafeAreaView, TouchableOpacity} from 'react-native';
 import TcpSocket from 'react-native-tcp-socket';
 import socketInfo from './Utils';
 import SoundPlayer from 'react-native-sound-player'
@@ -69,39 +69,44 @@ function Main(): JSX.Element {
   }
   
   return (
-    <SafeAreaView style={styles.background}>
-      <Text style={styles.sectionTitle}>this is main event</Text>
-      <TouchableOpacity style={styles.buttonstyle} onPress={socketConnect}>
-        <Text style={styles.buttontext}>socket connection</Text>
-      </TouchableOpacity>
-      <Text style={styles.buttontext}>socket state : {socketState}</Text>
-      <Text style={styles.buttontext}>recvdata : {recvdata}</Text>
+    <SafeAreaView style={styles.safearea}>
+        <View style={styles.background}>
+          <TouchableOpacity style={styles.buttonstyle} onPress={socketConnect}>
+            <Text style={styles.buttontext}>socket connection</Text>
+          </TouchableOpacity>
+          <Text style={styles.buttontext}>socket state : {socketState}</Text>
+          <Text style={styles.buttontext}>recvdata : {recvdata}</Text>
+        </View>
     </SafeAreaView>
   );
 }
 
 const styles = StyleSheet.create({
+    safearea: {
+      flex: 1,
+      backgroundColor: `cornflowerblue`,
+    },
     background: {
-        marginTop: 32,
-        alignItems: 'center',
+      flex: 1,
+      marginTop: 32,
+      alignItems: 'center',
+      justifyContent: 'center',
     },
     buttonstyle: {
         alignItems: 'center',
         marginTop: 10,
         marginBottom: 10,
-        backgroundColor: 'blue',
-        width: 200,
-        height: 30,
+        backgroundColor: 'darkorange',
+        width: 300,
+        height: 80,
+        borderRadius: 25,
+        justifyContent: 'center',
     },
     buttontext: {
-        fontSize: 18,
-        color: 'black',
+        alignItems: 'center',
+        fontSize: 25,
+        color: 'white',
         fontWeight: 'bold',
-    },
-    sectionTitle: {
-        textAlign: 'center',
-        fontSize: 26,
-        fontWeight: '600',
     },
   });
 
